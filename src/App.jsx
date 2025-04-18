@@ -4,6 +4,7 @@ import { BUSINESS_NAME, TOMATO_RED } from './constants';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [showElement, setShowElement] = useState(false);
 
   useEffect(() => {
     const animateText = () => {
@@ -11,6 +12,8 @@ function App() {
       businessName.textContent = BUSINESS_NAME;
       const text = BUSINESS_NAME;
       businessName.innerHTML = '';
+
+      if (!businessName) return;
 
       const spans = text.split('').map((letter) => {
         const span = document.createElement('span');
@@ -47,11 +50,13 @@ function App() {
   return (
     <div>
       <div>
-        <h1 className="business-name">{BUSINESS_NAME}</h1>
+        <h1 className="business-name text-4xl" data-style="text-4xl">{BUSINESS_NAME}</h1>
         <div className="card">
           
         </div>
-        
+        {showElement && (
+          <div className="sliding-element">This is a new element!</div>
+        )}
       </div>
     </div>
   )

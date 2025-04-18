@@ -44,3 +44,23 @@
 nav ul li a:hover {
   background-color: rgba(244, 244, 244, 0.8);
 }
+
+.sliding-element {
+  display: none;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

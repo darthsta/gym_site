@@ -8,12 +8,11 @@
       import { BUSINESS_NAME } from './src/constants.js';
       document.title = BUSINESS_NAME;
       document.querySelector('footer').innerHTML = `&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}`;
-      document.querySelector('.business-name').textContent = BUSINESS_NAME;
     </script>
   </head>
   <body>
     <div class="fixed top-0 left-0 h-screen w-1/5 flex flex-col">
-      <button class="flex-1 w-full bg-gray-300 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
+      <button id="but_1" class="flex-1 w-full bg-gray-300 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
         <span class="opacity-100">Events & Classes</span>
       </button>
       <button class="flex-1 w-full bg-gray-400 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
@@ -28,5 +27,6 @@
     <footer class="text-center py-4">
       <script type="module" src="/src/main.jsx"></script>
     </footer>
+    <script type="module" src="./src/modal.js"></script>
   </body>
 </html>
