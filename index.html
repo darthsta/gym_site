@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Business Here</title>
+    <script type="module">
+      import { BUSINESS_NAME } from './src/constants.js';
+      document.title = BUSINESS_NAME;
+      document.querySelector('footer').innerHTML = `&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}`;
+      document.querySelector('.business-name').textContent = BUSINESS_NAME;
+    </script>
   </head>
   <body>
     <div class="fixed top-0 left-0 h-screen w-1/5 flex flex-col">
@@ -21,9 +26,6 @@
     <div id="root"></div>
 
     <footer class="text-center py-4">
-      <script>
-        document.write(`&copy; ${new Date().getFullYear()} Definition Fitness`);
-      </script>
       <script type="module" src="/src/main.jsx"></script>
     </footer>
   </body>
