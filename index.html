@@ -4,15 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/images/dumbbell-variant.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module">
-      import { BUSINESS_NAME } from './src/constants.js';
-      document.title = BUSINESS_NAME;
-      document.querySelector('footer').innerHTML = `&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}`;
+    <script type="module" >
+      import { BUSINESS_NAME, BUTTON_1 } from './src/constants.js';
     </script>
   </head>
   <body>
     <div class="fixed top-0 left-0 h-screen w-1/5 flex flex-col">
-      <button id="but_1" class="flex-1 w-full bg-gray-300 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
+      <button id="BUTTON_1" class="flex-1 w-full bg-gray-300 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
         <span class="opacity-100">Events & Classes</span>
       </button>
       <button class="flex-1 w-full bg-gray-400 hover:opacity-100 text-lg font-bold border-0 rounded-none opacity-50">
@@ -25,8 +23,14 @@
     <div id="root"></div>
 
     <footer class="text-center py-4">
-      <script type="module" src="/src/main.jsx"></script>
+      
     </footer>
+    <script type="module" src="/src/main.jsx"></script>
     <script type="module" src="./src/modal.js"></script>
+    <script type="module">
+      import { BUSINESS_NAME } from './src/constants.js';
+      document.title = BUSINESS_NAME;
+      document.querySelector('footer').innerHTML = `&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}`;
+    </script>
   </body>
 </html>

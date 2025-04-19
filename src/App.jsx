@@ -51,10 +51,10 @@ function App() {
     <div>
       <div className="App flex flex-col items-center h-screen ">
         <h1 className="business-name text-4xl" data-style="text-4xl">{BUSINESS_NAME}</h1>
-        <div className="card w-96 shadow-lg rounded-lg p-6 mt-8">
+        <div className="card w-96 p-4 mt-8 items-center">
           <div className="text-xl mb-40">{BUSINESS_SLOGAN}</div>
           <div className="text-lg">
-            <p className=''>{BUSINESS_DESCRIPTION}</p>
+            <p className='w-fit'>{BUSINESS_DESCRIPTION}</p>
             </div>
         </div>
       </div>
