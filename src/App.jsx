@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { BUSINESS_NAME, TOMATO_RED } from './constants';
+import { BUSINESS_NAME, BUSINESS_SLOGAN, TOMATO_RED, BUSINESS_DESCRIPTION } from './constants';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -49,14 +49,14 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className="App flex flex-col items-center h-screen ">
         <h1 className="business-name text-4xl" data-style="text-4xl">{BUSINESS_NAME}</h1>
-        <div className="card">
-          
+        <div className="card w-96 shadow-lg rounded-lg p-6 mt-8">
+          <div className="text-xl mb-40">{BUSINESS_SLOGAN}</div>
+          <div className="text-lg">
+            <p className=''>{BUSINESS_DESCRIPTION}</p>
+            </div>
         </div>
-        {showElement && (
-          <div className="sliding-element">This is a new element!</div>
-        )}
       </div>
     </div>
   )
