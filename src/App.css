@@ -1,12 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* === IMPORTS === */
 @import "tailwindcss";
 
+/* === ROOT & BODY STYLES === */
+:root {
+  --my-red: #a7031e;
+  font-family: 'Inter', Helvetica, Welland, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  cursor: url('./assets/images/dumbbell-variant.png') 20 20, auto;
+  /* no scroll */
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/assets/images/woman-ropes-large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* === ELEMENT STYLES === */
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */ /* Commented out */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+h1 {
+  font-size: 3.5em;
+  line-height: 1.1;
+}
+
+button { /* General button styles */
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  transition: border-color 0.25s;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* === COMPONENT/CLASS STYLES === */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -20,6 +89,57 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.my-nav:focus,
+.my-nav:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+nav ul li a:hover { /* Specific nav link hover */
+  background-color: rgba(244, 244, 244, 0.8);
+}
+
+.business-name span {
+  color: var(--my-red);
+}
+
+/* === SLIDING FORM STYLES === */
+.sliding-element { /* Consider removing if not used */
+  display: none;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  animation: slideDown 0.5s forwards;
+}
+
+.side-form {
+  position: absolute;
+  top: 0;
+  right: -100%; /* Start off-screen */
+  width: 300px; /* Adjust width as needed */
+  height: 100%;
+  background-color: white; /* Or your desired background */
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  padding: 2rem;
+  transition: right 0.5s ease-in-out;
+  z-index: 20; /* Ensure it's above other content */
+  overflow-y: auto; /* Add scroll if content overflows */
+  color: #333; /* Set text color for readability */
+}
+
+.side-form.visible {
+  right: 0; /* Slide in */
+}
+
+/* === ANIMATIONS === */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,34 +149,7 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-nav ul li a:hover {
-  background-color: rgba(244, 244, 244, 0.8);
-}
-
-.sliding-element {
-  display: none;
-  background-color: #f0f0f0;
-  padding: 1rem;
-  margin-top: 1rem;
-  border: 1px solid #ccc;
-  animation: slideDown 0.5s forwards;
-}
-
-@keyframes slideDown {
+@keyframes slideDown { /* Consider removing if .sliding-element is not used */
   from {
     transform: translateY(-100%);
     opacity: 0;
@@ -64,5 +157,35 @@ nav ul li a:hover {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* === MEDIA QUERIES === */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo { /* Specific logo animation */
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens if needed */
+  /* Example: Make side nav full width (already present but good to keep here) */
+  .fixed.top-0.left-0.h-screen.w-1\/5 {
+     /* This targets the nav in index.html - consider a dedicated class */
+    width: 100%;
+    /* Potentially adjust other styles for mobile nav */
   }
 }
