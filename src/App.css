@@ -160,6 +160,16 @@ nav ul li a:hover { /* Specific nav link hover */
   }
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+
 /* === MEDIA QUERIES === */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo { /* Specific logo animation */
